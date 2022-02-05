@@ -1,0 +1,6 @@
+.env/
+background_textures/
+out_textures/
+source_textures/
+.ipynb_checkpoints
+__pycache__
