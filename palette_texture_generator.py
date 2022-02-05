@@ -40,4 +40,11 @@ def gen_from_name(name):
             out_img.save(out_file)
 
 if __name__ == "__main__":
-   gen_from_name(sys.argv[1])
+    arg = sys.argv[1]
+    if arg=="--all":
+        files = [i[0:-12] for i in os.listdir("source_textures") if i.endswith("_overlay.png")]
+        for f in files:
+            if os.path.exists("source_textures/"+f+"_paletted.png"):
+                gen_from_name(f)
+    else:
+        gen_from_name(sys.argv[1])
