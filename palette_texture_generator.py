@@ -8,14 +8,14 @@ def gen_from_name(name):
     paletted = "source_textures/"+name+"_paletted.png"
     overlay_img = Image.open(overlay).convert('RGBA')
     paletted_img = Image.open(paletted).convert('RGBA')
-    if not (overlay_img.size == (16,16) and paletted_img.size == (16,16)):
-        raise Exception("An input image is the wrong size")
+    if not (overlay_img.size == paletted_img.size):
+        raise Exception("Source images are different sizes")
     o_arr = np.array(overlay_img)
     p_arr = np.array(paletted_img)
     for background in os.listdir('background_textures'):
         if background.endswith('.png'):
             background_img = Image.open("background_textures/"+background).convert('RGBA')
-            if not background_img.size == (16,16):
+            if not background_img.size == paletted_img.size:
                 raise Exception("Background image " + background + " is the wrong size")
             b_arr = np.array(background_img)
             palette = []
