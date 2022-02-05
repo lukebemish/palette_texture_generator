@@ -1,6 +1,8 @@
 .env/
-background_textures/
-out_textures/
-source_textures/
+background_textures/*.png
+out_textures/*.png
+source_textures/*.png
+!source_textures/*_paletted.png
+!source_textures/*_overlay.png
 .ipynb_checkpoints
 __pycache__
